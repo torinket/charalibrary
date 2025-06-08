@@ -1,0 +1,160 @@
+@charset "utf-8";
+
+html{
+  font-size: 100%;
+}
+
+body{
+  background-color:ghostwhite ;
+  background-image: url(img/old-books-ga42a6ff49_1920.jpg);
+  max-width: 1000px;
+  margin: 0px auto;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+input{
+  font-size: medium;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+select{
+  font-size: medium;
+  height: 30px;
+  border-radius: 6px;
+}
+
+button{
+  height: 30px;
+  font-size: medium;
+}
+
+.wrapper{
+  padding: 20px;
+}
+
+.box{
+  background-color: ghostwhite;
+  padding: 20px;
+}
+
+.form-element {
+  font-size: medium;
+  height: 30px;
+  border-radius: 6px;
+  border: 1px solid;
+}
+
+header{
+  background-color: white;
+  border-bottom: thick double gray;
+  font-size: large;
+  font-weight: 500;
+}
+header p{
+  font-weight: 400;
+}
+
+.search{
+  margin-bottom: 10px;
+}
+#searchbox{
+  width: 100%;
+  margin-bottom: 5px;
+}
+#system{
+  width: 33%;
+}
+#newchara{
+  width: 33%;
+}
+
+#newinput{
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  padding: 20px;
+  background: ghostwhite;
+  border: 1px solid black;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+.erase{
+  display: none;
+}
+.close-btn {
+  position: absolute;
+  top: -7px;
+  right: 7px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #888;
+  z-index: 1100;
+}
+.system-select{
+  display: flex;
+  justify-content: space-between;
+}
+
+#inputarea{
+  width: 500px;
+  height: 100px;
+  white-space: normal;
+  resize: none;
+}
+
+.charalist ul{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.charalist li{
+  width: 25%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.delete-chara {
+  position: absolute;
+  top: -7px;
+  right: 7px;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #888;
+  z-index: 500;
+}
+
+.characard{
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+  border: 1px solid black;
+}
+.chara-name{
+  padding: 5px 0px;
+}
+/* 画像いけるようになったらここに増やすよ */
+.chara-sys ,.chara-job{
+  font-size: small;
+  padding: 5px 0px;
+}
+
+
+footer{
+  font-size: smaller;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}

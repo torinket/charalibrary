@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>recipe page</title>
+    <meta name="description" content="テキスト">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="responsive.css">
+  </head>
+
+  <body>
+    <header id="header" class="">
+      <div class="wrapper">
+        <a href="index.html">キャラクター図書館</a>
+        <p>あなたのキャラクター達をまとめるよ</p>
+      </div>
+    </header>
+
+    <main id="main" class="wrapper">
+      <div id="search" class="search box">
+        <input type="text" id="searchbox" placeholder="名前で検索" autocorrect="off">
+        <select id="system" class="system">
+          <option value="all">すべてのシステム</option>
+          <option value="クトゥルフ神話">クトゥルフ神話</option>
+          <option value="エモクロア">エモクロア</option>
+        </select>
+        <button id="newchara" class="newchara btn" type="button">新規キャラ</button>
+        <button id="searchbtn" class="btn" type="button">検索</button>
+      </div>
+      
+      <div  id="newinput" class="erase box">
+        <button id="close-newinput" class="close-btn" type="button">&times;</button>
+        <textarea type="text" id="inputarea" placeholder="ココフォリア形式でコピーしたものを貼り付けてね。" autocorrect="off"></textarea>
+        <div class="system-select">
+          <select id="newchara-system" name="newchara-system">
+            <option value="クトゥルフ神話">クトゥルフ神話</option>
+            <option value="エモクロア">エモクロア</option>
+            <option value="その他">その他</option>
+          </select>
+        <button id="create" >新規キャラ</button>
+        </div>
+      </div>
+
+      <div id="charalist" class="charalist box">
+        <ul>
+          <li>
+            <div class="characard">
+              <button id="delete-chara" class="delete-chara btn" type="button">&times;</button>
+              <a href="">
+                <p class="chara-name">ニャル・テップ</p>
+                <p class="chara-sys">クトゥルフ神話</p>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+
+
+    <footer id="footer" class="box">
+      <span>キャラクター図書館</span>
+    </footer>
+  </body>
+
+  <script src="index.js"></script>
+</html>
+

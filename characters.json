@@ -1,0 +1,191 @@
+[
+  {
+    "kind": "character",
+    "data": {
+      "name": "蒼鉛　新 (そうえん　あらた)",
+      "initiative": 14,
+      "externalUrl": "https://iachara.com/view/9438764",
+      "iconUrl": "https://image.iaproject.app/ec843212-1d7d-4961-ac46-7c29f6624227",
+      "commands": "1d100<={SAN} 【正気度ロール】\nCCB<=65 【アイデア】\nCCB<=60 【幸運】\nCCB<=75 【知識】\nCCB<=75 【目星】\nCCB<=25 【聞き耳】\nCCB<=65 【図書館】\nCCB<=30 【回避】\nCCB<=50 【こぶし（パンチ）】\nCCB<=60 【激烈エルボー】\nCCB<=50 【隠す】\nCCB<=50 【隠れる】\nCCB<=50 【信用】\nCCB<=30 【ラテン語】\nCCB<=60 【化学】\nCCB<=40 【コンピューター】\nCCB<=45 【心理学】\n1d3+0 【ダメージ判定】\n1d4+0 【ダメージ判定】\n1d6+0 【ダメージ判定】\nCCB<={STR}*5 【STR × 5】\nCCB<={CON}*5 【CON × 5】\nCCB<={POW}*5 【POW × 5】\nCCB<={DEX}*5 【DEX × 5】\nCCB<={APP}*5 【APP × 5】\nCCB<={SIZ}*5 【SIZ × 5】\nCCB<={INT}*5 【INT × 5】\nCCB<={EDU}*5 【EDU × 5】\n",
+      "status": [
+        {
+          "label": "HP",
+          "value": 9,
+          "max": 9
+        },
+        {
+          "label": "MP",
+          "value": 12,
+          "max": 12
+        },
+        {
+          "label": "SAN",
+          "value": 60,
+          "max": 60
+        }
+      ],
+      "params": [
+        {
+          "label": "STR",
+          "value": "10"
+        },
+        {
+          "label": "CON",
+          "value": "8"
+        },
+        {
+          "label": "POW",
+          "value": "12"
+        },
+        {
+          "label": "DEX",
+          "value": "14"
+        },
+        {
+          "label": "APP",
+          "value": "14"
+        },
+        {
+          "label": "SIZ",
+          "value": "10"
+        },
+        {
+          "label": "INT",
+          "value": "13"
+        },
+        {
+          "label": "EDU",
+          "value": "15"
+        }
+      ]
+    },
+    "name": "蒼鉛　新",
+    "system": "クトゥルフ神話"
+  },
+  {
+    "kind": "character",
+    "data": {
+      "name": "蒼鉛　新 (そうえん　あらた)",
+      "initiative": 14,
+      "externalUrl": "https://iachara.com/view/9438764",
+      "iconUrl": "https://image.iaproject.app/ec843212-1d7d-4961-ac46-7c29f6624227",
+      "commands": "1d100<={SAN} 【正気度ロール】\nCCB<=65 【アイデア】\nCCB<=60 【幸運】\nCCB<=75 【知識】\nCCB<=75 【目星】\nCCB<=25 【聞き耳】\nCCB<=65 【図書館】\nCCB<=30 【回避】\nCCB<=50 【こぶし（パンチ）】\nCCB<=60 【激烈エルボー】\nCCB<=50 【隠す】\nCCB<=50 【隠れる】\nCCB<=50 【信用】\nCCB<=30 【ラテン語】\nCCB<=60 【化学】\nCCB<=40 【コンピューター】\nCCB<=45 【心理学】\n1d3+0 【ダメージ判定】\n1d4+0 【ダメージ判定】\n1d6+0 【ダメージ判定】\nCCB<={STR}*5 【STR × 5】\nCCB<={CON}*5 【CON × 5】\nCCB<={POW}*5 【POW × 5】\nCCB<={DEX}*5 【DEX × 5】\nCCB<={APP}*5 【APP × 5】\nCCB<={SIZ}*5 【SIZ × 5】\nCCB<={INT}*5 【INT × 5】\nCCB<={EDU}*5 【EDU × 5】\n",
+      "status": [
+        {
+          "label": "HP",
+          "value": 9,
+          "max": 9
+        },
+        {
+          "label": "MP",
+          "value": 12,
+          "max": 12
+        },
+        {
+          "label": "SAN",
+          "value": 60,
+          "max": 60
+        }
+      ],
+      "params": [
+        {
+          "label": "STR",
+          "value": "10"
+        },
+        {
+          "label": "CON",
+          "value": "8"
+        },
+        {
+          "label": "POW",
+          "value": "12"
+        },
+        {
+          "label": "DEX",
+          "value": "14"
+        },
+        {
+          "label": "APP",
+          "value": "14"
+        },
+        {
+          "label": "SIZ",
+          "value": "10"
+        },
+        {
+          "label": "INT",
+          "value": "13"
+        },
+        {
+          "label": "EDU",
+          "value": "15"
+        }
+      ]
+    },
+    "name": "蒼鉛　新",
+    "system": "クトゥルフ神話"
+  },
+  {
+    "kind": "character",
+    "data": {
+      "name": "蒼鉛　新 (そうえん　あらた)",
+      "initiative": 14,
+      "externalUrl": "https://iachara.com/view/9438764",
+      "iconUrl": "https://image.iaproject.app/ec843212-1d7d-4961-ac46-7c29f6624227",
+      "commands": "1d100<={SAN} 【正気度ロール】\nCCB<=65 【アイデア】\nCCB<=60 【幸運】\nCCB<=75 【知識】\nCCB<=75 【目星】\nCCB<=25 【聞き耳】\nCCB<=65 【図書館】\nCCB<=30 【回避】\nCCB<=50 【こぶし（パンチ）】\nCCB<=60 【激烈エルボー】\nCCB<=50 【隠す】\nCCB<=50 【隠れる】\nCCB<=50 【信用】\nCCB<=30 【ラテン語】\nCCB<=60 【化学】\nCCB<=40 【コンピューター】\nCCB<=45 【心理学】\n1d3+0 【ダメージ判定】\n1d4+0 【ダメージ判定】\n1d6+0 【ダメージ判定】\nCCB<={STR}*5 【STR × 5】\nCCB<={CON}*5 【CON × 5】\nCCB<={POW}*5 【POW × 5】\nCCB<={DEX}*5 【DEX × 5】\nCCB<={APP}*5 【APP × 5】\nCCB<={SIZ}*5 【SIZ × 5】\nCCB<={INT}*5 【INT × 5】\nCCB<={EDU}*5 【EDU × 5】\n",
+      "status": [
+        {
+          "label": "HP",
+          "value": 9,
+          "max": 9
+        },
+        {
+          "label": "MP",
+          "value": 12,
+          "max": 12
+        },
+        {
+          "label": "SAN",
+          "value": 60,
+          "max": 60
+        }
+      ],
+      "params": [
+        {
+          "label": "STR",
+          "value": "10"
+        },
+        {
+          "label": "CON",
+          "value": "8"
+        },
+        {
+          "label": "POW",
+          "value": "12"
+        },
+        {
+          "label": "DEX",
+          "value": "14"
+        },
+        {
+          "label": "APP",
+          "value": "14"
+        },
+        {
+          "label": "SIZ",
+          "value": "10"
+        },
+        {
+          "label": "INT",
+          "value": "13"
+        },
+        {
+          "label": "EDU",
+          "value": "15"
+        }
+      ]
+    },
+    "name": "蒼鉛　新",
+    "system": "クトゥルフ神話"
+  }
+]
