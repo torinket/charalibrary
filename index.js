@@ -1,8 +1,7 @@
-// flask使用js
-
 const newchara = document.getElementById("newchara");
 const newinput = document.getElementById("newinput");
 const closeBtn = document.getElementById("close-newinput");
+const charadata = JSON.parse(localStorage.getItem("charadata") || "[]");
 
 newchara.addEventListener("click", function() {
   newinput.classList.remove("erase");
@@ -25,154 +24,109 @@ document.addEventListener("mousedown", function(e) {
   }
 });
 
-fetchCharacters(); 
-//検索ボックスの入力イベント
-document.getElementById("searchbtn").addEventListener("click", async function() {
-  const query = document.getElementById("searchbox").value.trim().toLowerCase();
-  const response = await fetch("http://127.0.0.1:5000/get_characters");
-  const characters = await response.json();
-  const filtered = characters.filter(chara =>
-    chara.name.toLowerCase().includes(query)
-  );
-  const charaList = document.getElementById("charalist");
-  charaList.innerHTML = "";
-  const ul = document.createElement("ul");
-  filtered.forEach(chara => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <div class="characard">
-        <button class="delete-chara btn" type="button">&times;</button>
-        <a href="#">
-          <p class="chara-name">${chara.name}</p>
-          <p class="chara-sys">${chara.system}</p>
-        </a>
-      </div>
-    `;
-    ul.appendChild(li);
-  });
-  charaList.appendChild(ul);
-});
+//新キャラ作成時の処理
+create.addEventListener("click", function() {
+  const inputarea = document.getElementById("inputarea");
+  const inputValue = inputarea.value;
 
-//systemのセレクトボックスの変更イベント
-document.getElementById("system").addEventListener("change", async function() {
-  const selectedSystem = this.value;
-  if (selectedSystem != "all") {
-  const response = await fetch("http://127.0.0.1:5000/get_characters");
-  const characters = await response.json();
+  if (!inputValue) {
+    inputarea.placeholder = "空白だよぉ...";
+    return;
+  }
   
-  const filtered = selectedSystem
-    ? characters.filter(chara => chara.system === selectedSystem)
-    : characters;
+  try {
+    JSON.parse(inputValue);
+  } catch (e) {
+    inputarea.value = "";
+    inputarea.placeholder = "ココフォリア形式じゃないかもぉ...";
+    return;
+  }
+  const jsondata = JSON.parse(inputValue);
+
+  const newcharasystem = document.getElementById("newchara-system").value;
+  jsondata.system = newcharasystem;
+
+  let charadata = JSON.parse(localStorage.getItem("charadata") || "[]");
+  charadata.push(jsondata);
+  localStorage.setItem("charadata", JSON.stringify(charadata));
+
+  make_list(charadata);
+  // newinput.classList.add("erase");
+  // newinput.classList.remove("show");
+  // inputarea.value = ""; 
+  }
+)
+
+// キャラリストの削除ボタンのイベント
+document.getElementById("charalist").addEventListener("click", function(e) {
+  if (e.target.classList.contains("delete-chara")) {
+    const charaCard = e.target.closest(".characard");
+    const charaName = charaCard.querySelector(".chara-name").textContent;
+    
+    let charadata = JSON.parse(localStorage.getItem("charadata") || "[]");
+    charadata = charadata.filter(chara => {
+      // chara.data.name で一致するキャラのみ削除
+      const name = chara.data ? chara.data.name : chara.name;
+      // 表示名から括弧を除去して比較
+      const displayName = name ? name.replace(/\s*\(.*?\)/g, "") : "";
+      return displayName !== charaName;
+    });
+    
+    localStorage.setItem("charadata", JSON.stringify(charadata));
+    make_list(charadata);
+  }
+});
+
+document.getElementById("system").addEventListener("change", function(e) {
+  const selectedSystem = e.target.value;
+  let charadata = JSON.parse(localStorage.getItem("charadata") || "[]");
+  if (selectedSystem !== "all") {
+    charadata = charadata.filter(chara => (chara.system || "システムなし") === selectedSystem);
+  }
+  make_list(charadata);
+});
+
+// 名前検索機能
+document.getElementById("searchbtn").addEventListener("click", function() {
+  const searchbox = document.getElementById("searchbox");
+  const keyword = searchbox.value.trim();
+  let charadata = JSON.parse(localStorage.getItem("charadata") || "[]");
+  if (keyword) {
+    charadata = charadata.filter(chara => {
+      const name = (chara.data && chara.data.name) ? chara.data.name.replace(/\s*\(.*?\)/g, "") : "";
+      return name.includes(keyword);
+    });
+  }
+  make_list(charadata);
+});
+
+// 引数のjsonからキャラリスト作る関数
+function make_list(charadata) {
   const charaList = document.getElementById("charalist");
   charaList.innerHTML = "";
+  
   const ul = document.createElement("ul");
-  filtered.forEach(chara => {
+  charadata.forEach(chara => {
     const li = document.createElement("li");
+
+    let name = chara.data.name || "名前なし";
+    const system = chara.system || "システムなし";
+
+    name = name.replace(/\s*\(.*?\)/g, "");
+
     li.innerHTML = `
       <div class="characard">
         <button class="delete-chara btn" type="button">&times;</button>
         <a href="#">
-          <p class="chara-name">${chara.name}</p>
-          <p class="chara-sys">${chara.system}</p>
+          <p class="chara-name">${name}</p>
+          <p class="chara-sys">${system}</p>
         </a>
       </div>
     `;
     ul.appendChild(li);
   });
   charaList.appendChild(ul);
-  }else {
-    fetchCharacters();  // "all"が選択された場合は全キャラを表示
-  }
-});
+};
 
-//キャラの削除
-document.getElementById("charalist").addEventListener("click", async function(e) {
-    if (e.target.classList.contains("delete-chara")) {
-
-    const charaCard = e.target.closest(".characard");
-    const nameElem = charaCard.querySelector(".chara-name");
-    const charaName = nameElem ? nameElem.textContent : null;
-    if (charaName && confirm(`「${charaName}」を削除しますか？`)) {
-      await fetch("http://127.0.0.1:5000/delete_character", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: charaName })
-      });
-      fetchCharacters();
-    }
-  }
-});
-
-//以下、API部分
-
-async function fetchCharacters() {
-    const response = await fetch("http://127.0.0.1:5000/get_characters"); 
-    const characters = await response.json();  // APIからデータを取得しJSONに変換
-    
-    const charaList = document.getElementById("charalist");
-    charaList.innerHTML = "";  // 既存のリストをクリア
-
-    const ul = document.createElement("ul");
-    characters.forEach(chara => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-            <div class="characard">
-                <button class="delete-chara btn" type="button">&times;</button>
-                <a href="#">
-                    <p class="chara-name">${chara.name}</p>
-                    <p class="chara-sys">${chara.system}</p>
-                </a>
-            </div>
-        `;
-        ul.appendChild(li);
-    });
-    charaList.appendChild(ul);  // リストを更新
-}
-
-document.getElementById("create").addEventListener("click", async function() {
-    const inputText = document.getElementById("inputarea").value.trim();
-    // 入力が空でない場合のみキャラクターを追加
-    if (inputText) {
-      const charaData = JSON.parse(inputText);
-
-      charaData.name = replace_name(charaData);  // 名前を()なしに変換
-      charaData.system = get_system();  // システムを取得
-
-      await fetch("http://127.0.0.1:5000/add_character", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(charaData),  // 追加するキャラクターのデータをJSON形式で送信
-      });
-
-      fetchCharacters();  // 更新
-
-      document.getElementById("inputarea").value = "";  // 入力エリアをクリア
-      console.log("キャラを追加したよ");  // デバッグ用
-      newinput.classList.add("erase");
-      newinput.classList.remove("show");
-      
-      saveCharacters(charaData);  // キャラクターを保存
-      console.log("キャラを保存したよ");  // デバッグ用 
-    }
-});
-
-async function saveCharacters(characters) {
-  await fetch("http://127.0.0.1:5000/save_characters", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(characters)
-  });
-}
-
-// jsonを入れるとnameを()なしに変換
-function replace_name(name) {   
-    const nameWithParens = name.data.name;
-    const charaNameNoParens = nameWithParens.replace(/\s*\(.*?\)/g, "");
-    return charaNameNoParens.split("\n")[0] || "名無しのキャラ";
-}
-
-//　キャラのシステムを取得
-function get_system(){
-    const system = document.getElementById("newchara-system").value;
-    return system; 
-}
+//初期実行関数書き場所
+make_list(charadata);
