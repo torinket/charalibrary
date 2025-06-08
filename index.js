@@ -50,11 +50,10 @@ create.addEventListener("click", function() {
   charadata.push(jsondata);
   localStorage.setItem("charadata", JSON.stringify(charadata));
 
-  make_list(charadata);
-
   inputarea.value = ""; 
   newinput.classList.add("erase");
   newinput.classList.remove("show");
+  make_list(charadata);
   }
 )
 
